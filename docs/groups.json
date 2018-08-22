@@ -483,6 +483,9 @@
         },
         {
           "path": "json/personal_alatas.json"
+        },
+        {
+          "path": "json/personal_rfbarraza.json"
         }
       ]
     },
