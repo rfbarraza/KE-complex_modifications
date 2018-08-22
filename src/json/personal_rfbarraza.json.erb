@@ -1,0 +1,49 @@
+{
+    "title": "Personal Rules (@rfbarraza)",
+    "rules": [
+        {
+            <%# ------------------------------------------------------------ %>
+            <%# Replace annoying grave accent and tilde behavior on most     %>
+            <%# small profile keyboards (including Apple's new Touch Bar     %>
+            <%# keyboard).                                                   %>
+            <%# ------------------------------------------------------------ %>
+            "description": "Corner key is Esc and Grave Accent and Tilde via Opt + Esc",
+            "manipulators": [
+                {
+                    <%# Change Grave Accent and Tilde to Esc on Apple Keyboard %>
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 631
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", [], ["any"]) %>,
+                    "to": <%= to([["escape"]]) %>
+                },
+                {
+                    <%# Make Opt + Esc be Grave Accent and Tilde on Mistel MD650L %>
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1241,
+                                    "product_id": 626
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("escape", ["left_alt"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde"]]) %>
+                }
+            ]
+        }
+    ]
+}
