@@ -1,33 +1,17 @@
 {
     "title": "Personal Rules (@rfbarraza)",
     "rules": [
+        <%# ---------------------------------------------------------------- %>
+        <%# Smaller keyboards should combine the Esc and Grave Accent and    %>
+        <%# Tilde keys. Pressing alone yields Esc and for all other          %>
+        <%# interactions prefer Grave Accent and Tilde behavior.             %>
+        <%# (Esc shouldn't accept modifiers, IMO.)                           %>
+        <%# ---------------------------------------------------------------- %>
         {
-            <%# ------------------------------------------------------------ %>
-            <%# Replace annoying grave accent and tilde behavior on most     %>
-            <%# small profile keyboards (including Apple's new Touch Bar     %>
-            <%# keyboard).                                                   %>
-            <%# ------------------------------------------------------------ %>
-            "description": "Corner key is Esc and Grave Accent and Tilde via Opt + Esc",
+            "description": "Small keyboards corner key is Esc. All other modifiers yield grave accent and tilde",
             "manipulators": [
+                <%# Mistel MD650L has only an Esc key  %>
                 {
-                    <%# Change Grave Accent and Tilde to Esc on Apple Keyboard %>
-                    "conditions": [
-                        {
-                            "type": "device_if",
-                            "identifiers": [
-                                {
-                                    "vendor_id": 1452,
-                                    "product_id": 631
-                                }
-                            ]
-                        }
-                    ],
-                    "type": "basic",
-                    "from": <%= from("grave_accent_and_tilde", [], ["any"]) %>,
-                    "to": <%= to([["escape"]]) %>
-                },
-                {
-                    <%# Make Opt + Esc be Grave Accent and Tilde on Mistel MD650L %>
                     "conditions": [
                         {
                             "type": "device_if",
@@ -40,8 +24,384 @@
                         }
                     ],
                     "type": "basic",
-                    "from": <%= from("escape", ["left_alt"], []) %>,
+                    "from": <%= from("escape", [], []) %>,
+                    "to": <%= to([["escape"]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1241,
+                                    "product_id": 626
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("escape", ["left_option"], []) %>,
                     "to": <%= to([["grave_accent_and_tilde"]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1241,
+                                    "product_id": 626
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("escape", ["left_command"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["left_command"]]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1241,
+                                    "product_id": 626
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("escape", ["right_option"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["right_option"]]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1241,
+                                    "product_id": 626
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("escape", ["right_command"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["right_command"]]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1241,
+                                    "product_id": 626
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("escape", ["left_shift"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["left_shift"]]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1241,
+                                    "product_id": 626
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("escape", ["right_shift"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["right_shift"]]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1241,
+                                    "product_id": 626
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("escape", ["left_control"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["left_control"]]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1241,
+                                    "product_id": 626
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("escape", ["right_control"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["right_control"]]]) %>
+                },
+                <%# MBP has a Grave Accent and Tilde key %>
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 631
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", [], []) %>,
+                    "to": <%= to([["escape"]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 631
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["left_command"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["left_command"]]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 631
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["right_command"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["right_command"]]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 631
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["right_option"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["right_option"]]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 631
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["left_option"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["left_option"]]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 631
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["left_control"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["left_control"]]]) %>
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 631
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "basic",
+                    "from": <%= from("grave_accent_and_tilde", ["right_control"], []) %>,
+                    "to": <%= to([["grave_accent_and_tilde", ["right_control"]]]) %>
+                }
+            ]
+        },
+        <%# ---------------------------------------------------------------- %>
+        <%# Left Ctrl + Right Shift + H,J,K,L  changes to left, down, up,    %>
+        <%# right arrows like VIM                                            %>
+        <%# ---------------------------------------------------------------- %>
+        {
+            "description": "Left Ctrl + Right Shift + H,J,K,L translate to arrow keys like VIM controls",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("h", ["left_control", "right_shift"], []) %>,
+                    "to": <%= to([["left_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("j", ["left_control", "right_shift"], []) %>,
+                    "to": <%= to([["down_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ["left_control", "right_shift"], []) %>,
+                    "to": <%= to([["up_arrow"]]) %>
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("l", ["left_control", "right_shift"], []) %>,
+                    "to": <%= to([["right_arrow"]]) %>
+                }
+            ]
+        },
+        <%# --------------------------------------------------------------- %>
+        <%# Left shift 2x opens Mission Control                            %>
+        <%# --------------------------------------------------------------- %>
+        {
+            "description": "Left shift 2x yields Mission Control",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("left_shift", [], ["any"]) %>,
+                    "to": <%= to([["mission_control"]]) %>,
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "left_shift pressed",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("left_shift", [], ["any"]) %>,
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "left_shift pressed",
+                                "value": 1
+                            }
+                        },
+                        {
+                            "key_code": "left_shift"
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "left_shift pressed",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "left_shift pressed",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        <%# --------------------------------------------------------------- %>
+        <%# Right shift 2x shows Desktop                                      %>
+        <%# --------------------------------------------------------------- %>
+        {
+            "description": "Right shift 2x shows Desktop",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("right_shift", [], ["any"]) %>,
+                    "to": <%= to([["mission_control", ["left_command"]]]) %>,
+                    "conditions": [
+                        {
+                            "type": "variable_if",
+                            "name": "right_shift pressed",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("right_shift", [], ["any"]) %>,
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "right_shift pressed",
+                                "value": 1
+                            }
+                        },
+                        {
+                            "key_code": "right_shift"
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "right_shift pressed",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "right_shift pressed",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    }
                 }
             ]
         }
