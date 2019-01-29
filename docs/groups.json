@@ -39,6 +39,9 @@
         },
         {
           "path": "json/pc_style_modifiers.json"
+        },
+        {
+          "path": "json/wolfXu.json"
         }
       ]
     },
@@ -367,7 +370,8 @@
           "path": "json/fn_grave_accent.json"
         },
         {
-          "path": "json/standard_function_keys_on_fn.json"
+          "path": "json/standard_function_keys_on_fn.json",
+          "extra_description_path": "extra_descriptions/standard_function_keys_on_fn.json.html"
         }
       ]
     },
